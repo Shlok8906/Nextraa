@@ -85,6 +85,9 @@ const ServicesSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Driving Talent, Performance & <span className="text-gradient-primary">Innovation</span>
           </h2>
+          <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+            NexTraa is your one-stop partner for end-to-end talent transformation — from discovery and assessments to upskilling, performance enablement, hackathons, and executive coaching. We deliver integrated technical, behavioral, and leadership solutions that empower individuals and enable organizations to thrive in a rapidly evolving world
+          </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

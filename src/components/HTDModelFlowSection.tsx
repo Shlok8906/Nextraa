@@ -112,7 +112,7 @@ const HTDModelFlowSection = () => {
             Delivery Framework
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            Meritocracy Talent Solutions <span className="text-gradient-primary">RTD / HTD Model</span>
+            Go to Market Talent Solutions <span className="text-gradient-primary">RTD / HTD Model</span>
           </h2>
         </motion.div>
 

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
+import { useNavigate, useLocation } from "react-router-dom";
+// ...existing code...
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -9,10 +10,12 @@ const navItems = [
   { label: "Training", href: "#training" },
   { label: "Talent", href: "#talent" },
   { label: "Clients", href: "#clients" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -23,10 +26,21 @@ const Navbar = () => {
   }, []);
 
   const handleClick = (href: string) => {
-    setMobileOpen(false);
-    const el = document.querySelector(href);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
+  setMobileOpen(false);
+
+  if (href.startsWith("#")) {
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      }, 60);
+      return;
+    }
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    return;
+  }
+  navigate(href);
+};
 
   return (
     <nav
@@ -47,17 +61,15 @@ const Navbar = () => {
             <button
               key={item.href}
               onClick={() => handleClick(item.href)}
-              className="text-sm font-medium text-primary-foreground/80 hover:text-primary transition-colors"
+              className={
+                item.href === "/contact"
+                  ? "bg-gradient-teal text-primary-foreground px-5 py-2 rounded-md text-sm font-semibold hover:opacity-90 transition-opacity"
+                  : "text-sm font-medium text-primary-foreground/80 hover:text-primary transition-colors"
+              }
             >
               {item.label}
             </button>
           ))}
-          <button
-            onClick={() => handleClick("#contact")}
-            className="bg-gradient-teal text-primary-foreground px-5 py-2 rounded-md text-sm font-semibold hover:opacity-90 transition-opacity"
-          >
-            Get in Touch
-          </button>
         </div>
 
         {/* Mobile toggle */}

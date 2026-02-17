@@ -31,9 +31,7 @@ const HeroSection = () => {
             Empowering Talent, Driving Performance
           </p>
           <p className="max-w-2xl mx-auto text-sm md:text-base text-primary-foreground/60 mb-10 leading-relaxed">
-            A comprehensive training program offering diverse technical, soft skill, and behavioral
-            trainings to empower individuals and organizations with the knowledge and capabilities
-            needed to thrive.
+            NexTraa is your one-stop partner for end-to-end talent transformation — from discovery and assessments to upskilling, performance enablement, hackathons, and executive coaching. We deliver integrated technical, behavioral, and leadership solutions that empower individuals and enable organizations to thrive in a rapidly evolving world.
           </p>
         </motion.div>
 
