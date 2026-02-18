@@ -7,7 +7,7 @@ const TalentAcceleratorSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="talent" className="section-padding bg-gradient-navy" ref={ref}>
+    <section id="talent" className="section-padding bg-gradient-navy scroll-mt-24" ref={ref}>
       <div className="container-corporate">
         <div>
           <motion.div

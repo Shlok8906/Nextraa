@@ -30,9 +30,10 @@ const NonTechnicalTrainingSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-padding bg-background" ref={ref}>
+    <section id="non-technical-training" className="section-padding bg-background scroll-mt-24" ref={ref}>
       <div className="container-corporate">
         <motion.div
+          id="non-technical-focus-areas"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}

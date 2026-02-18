@@ -3,14 +3,11 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import CoreValuesSection from "@/components/CoreValuesSection";
 import ServicesSection from "@/components/ServicesSection";
-import TechnicalTrainingSection from "@/components/TechnicalTrainingSection";
-import NonTechnicalTrainingSection from "@/components/NonTechnicalTrainingSection";
-import HTDModelFlowSection from "@/components/HTDModelFlowSection";
+import ProgramsOverviewSection from "@/components/ProgramsOverviewSection";
 import TalentAcceleratorSection from "@/components/TalentAcceleratorSection";
 import AssetsSection from "@/components/AssetsSection";
-import ClientsSection from "@/components/ClientsSection";
 import GoalsSection from "@/components/GoalsSection";
-import LeadersSection from "@/components/LeadersSection";
+import ClientsSection from "@/components/ClientsSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -21,14 +18,11 @@ const Index = () => {
       <AboutSection />
       <CoreValuesSection />
       <ServicesSection />
-      <TechnicalTrainingSection />
-      <NonTechnicalTrainingSection />
-      <HTDModelFlowSection />
+      <ProgramsOverviewSection />
       <TalentAcceleratorSection />
       <AssetsSection />
-      <LeadersSection />
-      <ClientsSection />
       <GoalsSection />
+      <ClientsSection />
       <Footer />
     </div>
   );

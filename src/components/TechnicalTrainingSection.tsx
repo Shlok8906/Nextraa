@@ -90,79 +90,6 @@ const corporateTechnicalTrainings = [
   },
 ];
 
-const nonTechnicalFocusAreas = [
-  {
-    managementTrainings: "Performance Management",
-    strategicInterventionTrainings: "I2 - Instilling Innovation",
-    employeeEngagementTrainings: "Motivational",
-  },
-  {
-    managementTrainings: "Prince2",
-    strategicInterventionTrainings: "Business Leadership",
-    employeeEngagementTrainings: "Business Communication",
-  },
-  {
-    managementTrainings: "Lean",
-    strategicInterventionTrainings: "Business Analysis",
-    employeeEngagementTrainings: "Team Work Skills",
-  },
-  {
-    managementTrainings: "Risk Management",
-    strategicInterventionTrainings: "Consultative Selling",
-    employeeEngagementTrainings: "Situation Awareness Skills",
-  },
-  {
-    managementTrainings: "Management Coaching",
-    strategicInterventionTrainings: "Business Strategy",
-    employeeEngagementTrainings: "Time Management Skills",
-  },
-  {
-    managementTrainings: "Change Management",
-    strategicInterventionTrainings: "Operational Strategy",
-    employeeEngagementTrainings: "Problem Solving Techniques",
-  },
-  {
-    managementTrainings: "Employer Brand",
-    strategicInterventionTrainings: "Functional Level Strategy",
-    employeeEngagementTrainings: "Positive Attitude Skills",
-  },
-];
-
-const assetHighlights = [
-  {
-    title: "An ‘Innovative’ Talent Acquisition Model",
-    points: [
-      "Model built by assessing candidates and training professionals in the IT industry.",
-      "Accuracy Met - 100.0%.",
-    ],
-  },
-  {
-    title: "Customized for every client team",
-    points: [
-      "Customized for talent profile, budget, time and technology.",
-      "A multi-dimensional assessment model with both qualitative and quantitative rating.",
-    ],
-  },
-  {
-    title: "A self-discovery based approach",
-    points: [
-      "A hands-on assessment model based on JIT learning.",
-      "Right blend of Behavioral, Technical and Professional competencies.",
-    ],
-  },
-];
-
-const assetBlocks = [
-  { title: "Team", desc: "A dedicated team of 50 super talented people" },
-  { title: "Clients", desc: "Over 50 Fortune and Global IT majors" },
-  { title: "Partners", desc: "Trusted network in over strategic locations" },
-  { title: "Relationships", desc: "Relationships with academic institutions and Universities" },
-  { title: "Mentors", desc: "Over globally acclaimed mentors" },
-  { title: "Expertise", desc: "Rich Experienced Tech trainers" },
-  { title: "Platform", desc: "Digital Learning Platform for future skills content" },
-  { title: "Technology", desc: "Deep expertise in Digital Ecosystems" },
-];
-
 const certifications = "VMware, AWS, Azure, GCP, PMP, TOGAF, PRINCE, ITIL, ISTQB, Data Science, Agile & Scrum, MSP, Six Sigma";
 const tools = "JIRA, GitHub, Figma, Bootstrap, Visual Studio Code, POSTMAN, NetBeans, Cloud9 ID";
 
@@ -171,9 +98,10 @@ const TechnicalTrainingSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="training" className="section-padding bg-surface-alt" ref={ref}>
+    <section id="technical-training" className="section-padding bg-surface-alt scroll-mt-24" ref={ref}>
       <div className="container-corporate">
         <motion.div
+          id="technical-focus-areas"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -271,76 +199,6 @@ const TechnicalTrainingSection = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-12"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold tracking-[0.14em] uppercase text-foreground">
-            Our Current Focus Areas
-          </h3>
-          <p className="text-lg md:text-2xl font-semibold tracking-[0.12em] uppercase text-foreground/90 mt-2 mb-5">
-            Non-Technical Corporate Trainings
-          </p>
-
-          <div className="rounded-xl border border-border overflow-x-auto bg-card">
-            <table className="w-full min-w-[900px]">
-              <thead>
-                <tr className="bg-accent">
-                  <th className="text-left p-4 text-sm font-bold text-accent-foreground border-b border-border">Management Trainings</th>
-                  <th className="text-left p-4 text-sm font-bold text-accent-foreground border-b border-border">Strategic Intervention Trainings</th>
-                  <th className="text-left p-4 text-sm font-bold text-accent-foreground border-b border-border">Employee Engagement Trainings</th>
-                </tr>
-              </thead>
-              <tbody>
-                {nonTechnicalFocusAreas.map((row, index) => (
-                  <tr key={index} className="border-b border-border last:border-b-0">
-                    <td className="p-4 text-sm text-muted-foreground align-top leading-relaxed">{row.managementTrainings}</td>
-                    <td className="p-4 text-sm text-muted-foreground align-top leading-relaxed">{row.strategicInterventionTrainings}</td>
-                    <td className="p-4 text-sm text-muted-foreground align-top leading-relaxed">{row.employeeEngagementTrainings}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-12"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold tracking-[0.2em] uppercase text-foreground mb-8">
-            Our Assets
-          </h3>
-
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {assetHighlights.map((item) => (
-              <div key={item.title}>
-                <h4 className="text-xl font-bold leading-tight mb-2 text-primary">{item.title}</h4>
-                <ul className="space-y-1.5">
-                  {item.points.map((point) => (
-                    <li key={point} className="text-sm text-foreground/90 leading-relaxed flex items-start gap-2">
-                      <span className="w-1 h-1 rounded-full bg-foreground/70 mt-2 flex-shrink-0" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {assetBlocks.map((item) => (
-              <div key={item.title} className="bg-accent rounded-lg p-4 text-center">
-                <h4 className="text-2xl font-bold text-primary mb-1">{item.title}</h4>
-                <p className="text-sm text-accent-foreground leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

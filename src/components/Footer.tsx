@@ -1,14 +1,36 @@
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Footer = () => {
-  const services = [
-    "Total Talent Solutions",
-    "Performance & OKRs",
-    "Coaching & Consulting",
-    "Technical Upskilling",
-    "L&D Consulting",
-    "Leadership Development",
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const quickLinks = [
+    { label: "About Us", href: "/#about" },
+    { label: "Technical Training", href: "/programs#technical-training" },
+    { label: "Non-Technical Training", href: "/programs#non-technical-training" },
+    { label: "Talent Accelerator", href: "/#talent" },
+    { label: "Our Clients", href: "/#clients" },
   ];
+
+  const handleFooterLinkClick = (href: string) => {
+    if (!href.includes("#")) {
+      navigate(href);
+      return;
+    }
+
+    const [path, hash] = href.split("#");
+
+    if (location.pathname !== path) {
+      navigate(`${path}#${hash}`);
+      setTimeout(() => {
+        document.querySelector(`#${hash}`)?.scrollIntoView({ behavior: "smooth" });
+      }, 80);
+      return;
+    }
+
+    document.querySelector(`#${hash}`)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <footer id="contact" className="bg-gradient-navy text-secondary-foreground">
@@ -32,11 +54,15 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-sm mb-4 text-secondary-foreground">Services</h4>
             <ul className="space-y-2">
-              {["About Us", "Technical Training", "Non-Technical Training", "Talent Accelerator", "Our Clients"].map((link) => (
-                <li key={link}>
-                  <a href="#about" className="text-xs text-secondary-foreground/60 hover:text-primary transition-colors">
-                    {link}
-                  </a>
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <button
+                    type="button"
+                    onClick={() => handleFooterLinkClick(link.href)}
+                    className="text-xs text-secondary-foreground/60 hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </button>
                 </li>
               ))}
             </ul>
@@ -48,7 +74,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Mail className="text-primary flex-shrink-0" size={16} />
-                <a href="mailto:Info@nextraa.co" className="text-xs text-secondary-foreground/60 hover:text-primary transition-colors">Info@nextraa.co</a>
+                <a href="mailto:Info@nextraa.com" className="text-xs text-secondary-foreground/60 hover:text-primary transition-colors">Info@nextraa.com</a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="text-primary flex-shrink-0" size={16} />

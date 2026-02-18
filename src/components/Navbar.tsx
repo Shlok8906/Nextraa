@@ -4,12 +4,12 @@ import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 // ...existing code...
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Training", href: "#training" },
-  { label: "Talent", href: "#talent" },
-  { label: "Clients", href: "#clients" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Programs", href: "/#programs" },
+  { label: "Talent", href: "/#talent" },
+  { label: "Clients", href: "/#clients" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -18,6 +18,7 @@ const Navbar = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const shouldUseSolidNav = scrolled || location.pathname !== "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -26,34 +27,54 @@ const Navbar = () => {
   }, []);
 
   const handleClick = (href: string) => {
-  setMobileOpen(false);
+    setMobileOpen(false);
 
-  if (href.startsWith("#")) {
-    if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-      }, 60);
+    if (href.includes("#")) {
+      const [path, hash] = href.split("#");
+      const targetHash = `#${hash}`;
+
+      if (location.pathname !== path || location.hash !== targetHash) {
+        navigate(`${path}${targetHash}`);
+        setTimeout(() => {
+          document.querySelector(targetHash)?.scrollIntoView({ behavior: "smooth" });
+        }, 80);
+        return;
+      }
+
+      document.querySelector(targetHash)?.scrollIntoView({ behavior: "smooth" });
       return;
     }
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-    return;
-  }
-  navigate(href);
-};
+
+    if (href === "/") {
+      if (location.pathname === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      navigate("/");
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 80);
+      return;
+    }
+
+    navigate(href);
+  };
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        shouldUseSolidNav
           ? "bg-secondary/95 backdrop-blur-md shadow-corporate py-3"
           : "bg-transparent py-5"
       }`}
     >
       <div className="container-corporate flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#home" className="text-2xl font-bold text-primary-foreground tracking-tight">
+        <button
+          onClick={() => handleClick("/#home")}
+          className="text-2xl font-bold text-primary-foreground tracking-tight"
+        >
           Nex<span className="text-gradient-primary">Traa</span>
-        </a>
+        </button>
 
         {/* Desktop */}
         <div className="hidden lg:flex items-center gap-8">

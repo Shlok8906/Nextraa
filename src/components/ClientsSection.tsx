@@ -25,7 +25,7 @@ const ClientsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="clients" className="section-padding bg-surface-alt" ref={ref}>
+    <section id="clients" className="section-padding bg-surface-alt scroll-mt-24" ref={ref}>
       <div className="container-corporate">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
