@@ -43,7 +43,7 @@ const AboutSection = () => {
                 <Target className="text-primary mb-3" size={28} />
                 <h3 className="font-bold text-foreground mb-2">Mission</h3>
                 <p className="text-sm text-muted-foreground">
-                  To empower people, elevate performance, and enable organizations to win.
+                  To people, elevate performance, and enable organizations to win.
                 </p>
               </div>
               <div className="bg-card rounded-lg p-6 shadow-corporate border border-border">

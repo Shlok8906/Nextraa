@@ -28,20 +28,6 @@ const CompanyStorySection: React.FC = () => {
             <p className="text-muted-foreground leading-relaxed mb-6">
               Our founders bring combined 50+ years of experience across Technology, Banking, BFSI, and Consulting—partnering with multinational enterprises, ET 500 companies, and emerging market leaders to unlock potential, drive sustainable growth, and achieve competitive advantage through people.
             </p>
-            <div className="flex gap-6">
-              <div>
-                <p className="text-2xl font-bold text-primary">50+</p>
-                <p className="text-sm text-muted-foreground">Clients Served</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-primary">70K+</p>
-                <p className="text-sm text-muted-foreground">Professionals Trained</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-primary">300+</p>
-                <p className="text-sm text-muted-foreground">Programs Delivered</p>
-              </div>
-            </div>
           </motion.div>
 
           {/* Image Card */}
