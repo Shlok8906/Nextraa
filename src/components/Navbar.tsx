@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 // ...existing code...
 const navItems = [
   { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/#services" },
   { label: "Programs", href: "/#programs" },
   { label: "Talent", href: "/#talent" },

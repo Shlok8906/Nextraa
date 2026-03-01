@@ -20,18 +20,19 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-3xl"
         >
-          <p className="text-primary/90 text-sm md:text-base font-semibold tracking-[0.3em] uppercase mb-4">
+          <p className="text-primary/90 text-sm md:text-base font-semibold tracking-[0.3em] uppercase mb-6">
             Talent Solutions & Corporate Learning
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary-foreground leading-tight mb-6">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-primary-foreground leading-tight mb-8">
             Nex<span className="text-gradient-primary">Traa</span>
           </h1>
-          <p className="text-lg md:text-2xl text-primary-foreground/80 font-light tracking-wide mb-4">
-            Empowering Talent, Driving Performance
+          <p className="text-xl md:text-3xl text-primary-foreground/90 font-semibold mb-6 leading-snug">
+            Empower Leaders. Transform Talent. Drive Results.
           </p>
-          <p className="max-w-2xl mx-auto text-sm md:text-base text-primary-foreground/60 mb-10 leading-relaxed">
-            NexTraa is your one-stop partner for end-to-end talent transformation — from discovery and assessments to upskilling, performance enablement, hackathons, and executive coaching. We deliver integrated technical, behavioral, and leadership solutions that empower individuals and enable organizations to thrive in a rapidly evolving world.
+          <p className="max-w-2xl text-base md:text-lg text-primary-foreground/70 mb-12 leading-relaxed">
+            Your strategic partner for end-to-end talent transformation — from discovery and upskilling to performance enablement and executive coaching. Build future-ready organizations through integrated technical, behavioral, and leadership solutions.
           </p>
         </motion.div>
 
